@@ -12,7 +12,38 @@
         scroll-behavior: smooth;
         color: white;
         overflow-x: hidden;
+        height: 100%;
     }
+
+    /* PRELOADER */
+    #preloader {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border: 5px solid rgba(255, 165, 0, 0.3);
+        border-top: 5px solid orange;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
     /* Background Slideshow */
     .slideshow {
         position: fixed;
@@ -30,6 +61,7 @@
         66% { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
         100% { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
     }
+
     /* NAVBAR */
     .navbar {
         width: 100%;
@@ -62,7 +94,8 @@
         background: rgba(255,255,255,0.18);
         transform: scale(1.08);
     }
-    /* IMPROVED PLAYER COUNTER */
+
+    /* PLAYER COUNTER */
     .player-counter-box {
         background: rgba(255,255,255,0.12);
         backdrop-filter: blur(15px);
@@ -97,25 +130,22 @@
         50% { box-shadow: 0 0 20px rgba(255,255,255,0.9); }
         100% { box-shadow: 0 0 12px rgba(255,255,255,0.6); }
     }
-    .player-text {
-        font-size: 22px;
-    }
-    .player-numbers {
-        color: #aaffaa;
-        font-size: 24px;
-    }
+    .player-text { font-size: 22px; }
+    .player-numbers { color: #aaffaa; font-size: 24px; }
+
     /* Sections */
     .section {
         padding: 30px 8%;
         margin-top: 5px;
         opacity: 0;
         transform: translateY(10px);
-        transition: 0.5s ease;
+        transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .section.visible {
         opacity: 1;
         transform: translateY(0);
     }
+
     .glass {
         background: rgba(255,255,255,0.12);
         padding: 25px;
@@ -123,7 +153,8 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.25);
     }
-    /* Hero */
+
+    /* HERO WITH ENHANCED FADE-IN */
     .hero {
         display: flex;
         justify-content: center;
@@ -132,39 +163,31 @@
         padding-top: 150px;
         padding-bottom: 10px;
         flex-direction: column;
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+        transition: opacity 1.2s ease 0.6s, transform 1.2s ease 0.6s;
     }
+    .hero.loaded {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
     /* ORANGE PULSE-SHINE HEADER */
     .hero h1 {
         position: relative;
         font-size: 48px;
         font-weight: bold;
         color: orange;
-        text-shadow:
-            0 0 6px rgba(255,165,0,0.6),
-            0 0 12px rgba(255,165,0,0.4);
+        text-shadow: 0 0 6px rgba(255,165,0,0.6), 0 0 12px rgba(255,165,0,0.4);
         animation: pulseShine 2.4s infinite ease-in-out;
     }
     @keyframes pulseShine {
-        0% {
-            text-shadow:
-                0 0 6px rgba(255,165,0,0.4),
-                0 0 12px rgba(255,165,0,0.2);
-            filter: brightness(1);
-        }
-        50% {
-            text-shadow:
-                0 0 14px rgba(255,165,0,1),
-                0 0 28px rgba(255,165,0,0.8);
-            filter: brightness(1.25);
-        }
-        100% {
-            text-shadow:
-                0 0 6px rgba(255,165,0,0.4),
-                0 0 12px rgba(255,165,0,0.2);
-            filter: brightness(1);
-        }
+        0% { text-shadow: 0 0 6px rgba(255,165,0,0.4), 0 0 12px rgba(255,165,0,0.2); filter: brightness(1); }
+        50% { text-shadow: 0 0 14px rgba(255,165,0,1), 0 0 28px rgba(255,165,0,0.8); filter: brightness(1.25); }
+        100% { text-shadow: 0 0 6px rgba(255,165,0,0.4), 0 0 12px rgba(255,165,0,0.2); filter: brightness(1); }
     }
-    /* GREEN JOIN BUTTON */
+
+    /* BUTTONS */
     .btn {
         display: inline-block;
         padding: 10px 20px;
@@ -175,9 +198,7 @@
         transition: 0.3s;
         font-weight: bold;
     }
-    .btn:hover {
-        background: #218838;
-    }
+    .btn:hover { background: #218838; }
     .discord-btn {
         display: inline-block;
         padding: 10px 22px;
@@ -188,11 +209,10 @@
         font-weight: bold;
         transition: 0.3s;
     }
-    .discord-btn:hover {
-        background: #4752C4;
-    }
-    /* COMMUNITY CARDS - CENTERED CONTENT */
-    .community-container {
+    .discord-btn:hover { background: #4752C4; }
+
+    /* COMMUNITY & STAFF */
+    .community-container, .staff-container {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
@@ -231,22 +251,13 @@
         height: 180px;
         object-fit: cover;
         border-radius: 12px 12px 0 0;
-        margin: 0;
-        display: block;
     }
-    /* Department Borders */
     .ems-border { border-color: #ff4c4c; }
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
-    /* STAFF SECTION - CENTERED CONTENT */
-    .staff-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+
     .staff-card {
         width: 250px;
         background: rgba(255,255,255,0.15);
@@ -266,17 +277,6 @@
         transform: scale(1.05);
         background: rgba(255,255,255,0.25);
     }
-    .staff-card h3 {
-        margin: 0 0 10px 0;
-        font-size: 26px;
-        font-weight: bold;
-    }
-    .staff-card p {
-        margin: 0;
-        font-size: 20px;
-        opacity: 0.9;
-    }
-    /* Role-specific border colors */
     .owner-border { border-color: orange; }
     .dev-border { border-color: #00ffff; }
     .admin-border { border-color: #ff9900; }
@@ -284,7 +284,14 @@
 </style>
 </head>
 <body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+
 <div class="slideshow"></div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-ui">
@@ -294,6 +301,7 @@
         <a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a>
     </div>
 </nav>
+
 <!-- HERO -->
 <section id="home" class="section hero">
     <a href="https://docs.google.com/document/d/15k73DoFJU1GFHkNl1rPQY6DUAkDTCA1Tfe34wBckB9Y/edit?usp=drivesdk"
@@ -315,32 +323,28 @@
         </div>
     </div>
 </section>
+
 <!-- COMMUNITY -->
 <section id="community" class="section">
     <div class="glass">
         <h2 style="text-align: center;">Community Servers</h2>
         <div class="community-container">
-            <!-- EMS -->
             <a href="https://discord.gg/dTtHsA799r" target="_blank" class="community-card ems-border">
                 <img src="https://i.imgur.com/R4g5QuW.jpeg" class="community-img" alt="EMS ambulance">
                 <h3>EMS</h3>
             </a>
-            <!-- PD -->
             <a href="https://discord.gg/aRm4qqkzJF" target="_blank" class="community-card pd-border">
                 <img src="https://i.imgur.com/1bc7IDy.jpeg" class="community-img" alt="Police car">
                 <h3>Police Department</h3>
             </a>
-            <!-- Real Estate -->
             <a href="https://discord.gg/bheS82uczY" target="_blank" class="community-card realestate-border">
                 <img src="https://i.imgur.com/4qcTtDK.png" class="community-img" alt="House for sale">
                 <h3>Real Estate</h3>
             </a>
-            <!-- Factions -->
             <a href="https://discord.gg/bqbMtFkGdj" target="_blank" class="community-card factions-border">
                 <img src="https://i.imgur.com/vTvRAGd.jpeg" class="community-img" alt="Factions map">
                 <h3>Factions</h3>
             </a>
-            <!-- Business Center -->
             <a href="https://discord.gg/PXYtCz53mP" target="_blank" class="community-card business-border">
                 <img src="https://i.imgur.com/fqzN8G5.png" class="community-img" alt="Arcadius Business Center">
                 <h3>Business Center</h3>
@@ -348,27 +352,24 @@
         </div>
     </div>
 </section>
+
 <!-- STAFF -->
 <section id="staff" class="section">
     <div class="glass">
         <h2 style="text-align: center;">Meet the Staff Team</h2>
         <div class="staff-container">
-            <!-- Sadie - Owner -->
             <div class="staff-card owner-border">
                 <h3>Sadie</h3>
                 <p>Owner</p>
             </div>
-            <!-- Goob - Developer -->
             <div class="staff-card dev-border">
                 <h3>Goob</h3>
                 <p>Developer</p>
             </div>
-            <!-- Placeholder Admin -->
             <div class="staff-card admin-border">
                 <h3>Staff Member</h3>
                 <p>Admin</p>
             </div>
-            <!-- Placeholder Moderator -->
             <div class="staff-card mod-border">
                 <h3>Staff Member</h3>
                 <p>Moderator</p>
@@ -376,19 +377,36 @@
         </div>
     </div>
 </section>
+
 <section id="rules" class="section"></section>
+
 <script>
+    // PRELOADER + HERO ANIMATION
+    window.addEventListener('load', function () {
+        const preloader = document.getElementById('preloader');
+        const hero = document.querySelector('.hero');
+
+        // Hide preloader after a short delay for smooth effect
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            hero.classList.add('loaded'); // Trigger hero fade-in
+        }, 800);
+    });
+
+    // SCROLL REVEAL FOR OTHER SECTIONS
     const sections = document.querySelectorAll('.section');
     function reveal() {
         sections.forEach(sec => {
             const top = sec.getBoundingClientRect().top;
-            if (top < window.innerHeight - 50) {
+            if (top < window.innerHeight - 100) {
                 sec.classList.add('visible');
             }
         });
     }
     window.addEventListener('scroll', reveal);
     reveal();
+
+    // PLAYER COUNT UPDATE
     async function updatePlayerCount() {
         const box = document.getElementById("playerCount");
         const dot = box.querySelector('.status-dot');
