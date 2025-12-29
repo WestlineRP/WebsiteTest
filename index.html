@@ -152,7 +152,7 @@
         flex-direction: column;
     }
 
-    /* ⭐ ORANGE PULSE-SHINE HEADER ⭐ */
+    /* ORANGE PULSE-SHINE HEADER */
     .hero h1 {
         position: relative;
         font-size: 48px;
@@ -216,7 +216,7 @@
         background: #4752C4;
     }
 
-    /* COMMUNITY CARDS */
+    /* COMMUNITY CARDS - CENTERED CONTENT */
     .community-container {
         display: flex;
         gap: 20px;
@@ -246,9 +246,13 @@
     }
 
     .community-card h3 {
-        margin: 10px 0 15px 0;
-        font-size: 20px;
+        margin: 15px 0;
+        font-size: 22px;
         font-weight: bold;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .community-img {
@@ -264,12 +268,10 @@
     .ems-border { border-color: #ff4c4c; }
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
-
-    /* NEW COMMUNITY SERVER BORDERS */
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
-    /* STAFF SECTION - CARD STYLE */
+    /* STAFF SECTION - CENTERED CONTENT */
     .staff-container {
         display: flex;
         gap: 20px;
@@ -285,8 +287,12 @@
         border: 2px solid rgba(255,255,255,0.25);
         text-align: center;
         transition: 0.3s;
-        padding: 20px 0;
+        padding: 30px 20px;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .staff-card:hover {
@@ -295,14 +301,14 @@
     }
 
     .staff-card h3 {
-        margin: 15px 0 10px 0;
-        font-size: 24px;
+        margin: 0 0 10px 0;
+        font-size: 26px;
         font-weight: bold;
     }
 
     .staff-card p {
         margin: 0;
-        font-size: 18px;
+        font-size: 20px;
         opacity: 0.9;
     }
 
@@ -341,7 +347,7 @@
 
     <div class="player-counter-box" id="playerCount">
         <span class="status-dot status-online"></span>
-        <span class="player-text">Players: <span class="player-numbers">Loading...</span></span>
+        <span class="player-text">Players Online: <span class="player-numbers">Loading...</span></span>
     </div>
 
     <div class="glass">
@@ -382,13 +388,13 @@
                 <h3>Real Estate</h3>
             </a>
 
-            <!-- Factions (NEW) -->
+            <!-- Factions -->
             <a href="https://discord.gg/bqbMtFkGdj" target="_blank" class="community-card factions-border">
                 <img src="https://i.imgur.com/vTvRAGd.jpeg" class="community-img" alt="Factions map">
                 <h3>Factions</h3>
             </a>
 
-            <!-- Business Center (NEW) -->
+            <!-- Business Center -->
             <a href="https://discord.gg/PXYtCz53mP" target="_blank" class="community-card business-border">
                 <img src="https://i.imgur.com/fqzN8G5.png" class="community-img" alt="Arcadius Business Center">
                 <h3>Business Center</h3>
