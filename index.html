@@ -233,6 +233,49 @@
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
+    /* STAFF SECTION - NEW CARD STYLE */
+    .staff-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .staff-card {
+        width: 250px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.25);
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        overflow: hidden;
+    }
+
+    .staff-card:hover {
+        transform: scale(1.05);
+        background: rgba(255,255,255,0.25);
+    }
+
+    .staff-card h3 {
+        margin: 15px 0 10px 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .staff-card p {
+        margin: 0;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    /* Optional: Role-specific border colors */
+    .owner-border { border-color: orange; }
+    .dev-border { border-color: #00ffff; } /* Cyan for Developer */
+    .admin-border { border-color: #ff9900; }
+    .mod-border { border-color: #99ff99; }
+
 </style>
 
 </head>
@@ -284,31 +327,31 @@
 
             <!-- EMS -->
             <a href="https://discord.gg/dTtHsA799r" target="_blank" class="community-card ems-border">
-                <img src="https://i.imgur.com/R4g5QuW.jpeg" class="community-img">
+                <img src="https://i.imgur.com/R4g5QuW.jpeg" class="community-img" alt="EMS ambulance">
                 <h3>EMS</h3>
             </a>
 
             <!-- PD -->
             <a href="https://discord.gg/aRm4qqkzJF" target="_blank" class="community-card pd-border">
-                <img src="https://i.imgur.com/1bc7IDy.jpeg" class="community-img">
+                <img src="https://i.imgur.com/1bc7IDy.jpeg" class="community-img" alt="Police car">
                 <h3>Police Department</h3>
             </a>
 
             <!-- Real Estate -->
             <a href="https://discord.gg/bheS82uczY" target="_blank" class="community-card realestate-border">
-                <img src="https://i.imgur.com/4qcTtDK.png" class="community-img">
+                <img src="https://i.imgur.com/4qcTtDK.png" class="community-img" alt="House for sale">
                 <h3>Real Estate</h3>
             </a>
 
             <!-- Factions (NEW) -->
             <a href="https://discord.gg/bqbMtFkGdj" target="_blank" class="community-card factions-border">
-                <img src="https://i.imgur.com/vTvRAGd.jpeg" class="community-img">
+                <img src="https://i.imgur.com/vTvRAGd.jpeg" class="community-img" alt="Factions map">
                 <h3>Factions</h3>
             </a>
 
             <!-- Business Center (NEW) -->
             <a href="https://discord.gg/PXYtCz53mP" target="_blank" class="community-card business-border">
-                <img src="https://i.imgur.com/fqzN8G5.png" class="community-img">
+                <img src="https://i.imgur.com/fqzN8G5.png" class="community-img" alt="Arcadius Business Center">
                 <h3>Business Center</h3>
             </a>
 
@@ -323,22 +366,26 @@
 
         <div class="staff-container">
 
-            <div class="staff-card">
+            <!-- Sadie - Owner -->
+            <div class="staff-card owner-border">
                 <h3>Sadie</h3>
                 <p>Owner</p>
             </div>
-            
-            <div class="staff-card">
+
+            <!-- Goob - Developer -->
+            <div class="staff-card dev-border">
                 <h3>Goob</h3>
                 <p>Developer</p>
             </div>
 
-            <div class="staff-card">
+            <!-- Placeholder Admin -->
+            <div class="staff-card admin-border">
                 <h3>Staff Member</h3>
                 <p>Admin</p>
             </div>
 
-            <div class="staff-card">
+            <!-- Placeholder Moderator -->
+            <div class="staff-card mod-border">
                 <h3>Staff Member</h3>
                 <p>Moderator</p>
             </div>
