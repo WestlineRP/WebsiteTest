@@ -70,7 +70,7 @@
         transform: scale(1.08);
     }
 
-    /* Player Counter UI (Hero Placement) */
+    /* Player Counter UI */
     .player-counter-box {
         background: rgba(0,0,0,0.55);
         backdrop-filter: blur(12px);
@@ -123,7 +123,6 @@
         color: white;
         text-decoration: none;
         border-radius: 8px;
-        margin-top: 15px;
         transition: 0.3s;
     }
 
@@ -140,7 +139,6 @@
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
-        margin-bottom: 15px;
         transition: 0.3s;
     }
 
@@ -209,12 +207,20 @@
 
     <div class="glass">
 
-        <!-- DISCORD BUTTON ABOVE WELCOME TEXT -->
-        <a class="discord-btn" href="https://discord.gg/dEWmax9el-Hh" target="_blank">Join Our Discord</a>
-
         <h1>Welcome to Westline RP</h1>
         <p>Immersive roleplay. Custom scripts. Active staff. A city built for your story.</p>
-        <a href="https://cfx.re/join/8rgde5" class="btn" target="_blank">Join Server</a>
+
+        <!-- BUTTON ROW -->
+        <div style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+
+            <!-- JOIN CITY BUTTON -->
+            <a href="https://cfx.re/join/8rgde5" class="btn" target="_blank">Join City</a>
+
+            <!-- DISCORD BUTTON MOVED DOWN -->
+            <a class="discord-btn" href="https://discord.gg/dEWmax9el-Hh" target="_blank">Join Discord</a>
+
+        </div>
+
     </div>
 </section>
 
@@ -288,8 +294,10 @@
     window.addEventListener('scroll', reveal);
     reveal();
 
-    // PLAYER COUNTER SCRIPT
+    // PLAYER COUNTER + STATUS DOT
     async function updatePlayerCount() {
+        const box = document.getElementById("playerCount");
+
         try {
             const res = await fetch("https://servers-frontend.fivem.net/api/servers/single/8rgde5");
             const data = await res.json();
@@ -297,11 +305,15 @@
             const players = data.Data.clients;
             const max = data.Data.sv_maxclients;
 
-            document.getElementById("playerCount").innerText =
-                `Players: ${players}/${max}`;
+            box.innerHTML = `
+                <span style="color:#4CFF4C; font-size:18px;">●</span>
+                Players: ${players}/${max}
+            `;
         } catch (e) {
-            document.getElementById("playerCount").innerText =
-                "Players: Offline";
+            box.innerHTML = `
+                <span style="color:#FF4C4C; font-size:18px;">●</span>
+                Players: Offline
+            `;
         }
     }
 
