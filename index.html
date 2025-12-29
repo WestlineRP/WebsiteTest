@@ -116,39 +116,45 @@
         flex-direction: column;
     }
 
-    /* ⭐ GTA-STYLE ANIMATED HEADER ⭐ */
+    /* ⭐ FIXED GTA-STYLE ORANGE HEADER ⭐ */
     .hero h1 {
         position: relative;
         font-size: 48px;
         font-weight: bold;
-        text-shadow: 0 0 12px rgba(255,255,255,0.6);
+        color: orange;
+        text-shadow: 0 0 12px rgba(255,165,0,0.7);
         animation: headerGlow 3s infinite ease-in-out;
+        overflow: hidden; /* keeps shine inside text */
+        display: inline-block; /* prevents full-width bar */
     }
 
+    /* Orange glow pulse */
     @keyframes headerGlow {
-        0% { text-shadow: 0 0 8px rgba(255,255,255,0.4); }
-        50% { text-shadow: 0 0 18px rgba(255,255,255,0.9); }
-        100% { text-shadow: 0 0 8px rgba(255,255,255,0.4); }
+        0% { text-shadow: 0 0 8px rgba(255,165,0,0.4); }
+        50% { text-shadow: 0 0 18px rgba(255,165,0,1); }
+        100% { text-shadow: 0 0 8px rgba(255,165,0,0.4); }
     }
 
+    /* Orange scanline shine */
     .hero h1::after {
         content: "";
         position: absolute;
         top: 0;
-        left: -100%;
+        left: -120%;
         width: 100%;
         height: 100%;
         background: linear-gradient(
             120deg,
             transparent 0%,
-            rgba(255,255,255,0.4) 50%,
+            rgba(255,165,0,0.6) 50%,
             transparent 100%
         );
         animation: scanline 2.8s infinite;
+        pointer-events: none;
     }
 
     @keyframes scanline {
-        0% { left: -100%; }
+        0% { left: -120%; }
         100% { left: 120%; }
     }
 
