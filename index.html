@@ -14,7 +14,7 @@
         overflow-x: hidden;
     }
 
-    /* FADE SLIDESHOW BACKGROUND */
+    /* SLIDE LEFT SLIDESHOW BACKGROUND */
     .slideshow {
         position: fixed;
         top: 0; left: 0;
@@ -23,27 +23,24 @@
         background-size: cover;
         background-position: center;
         filter: brightness(60%);
-        animation: fadeSlide 32s infinite;
+        animation: slideLeft 32s infinite linear;
     }
 
-    @keyframes fadeSlide {
-        0%   { opacity: 0; background-image: url('https://i.imgur.com/jOkIRVy.png'); }
-        6.25% { opacity: 1; }   /* Fade in complete */
-        25%  { opacity: 1; }    /* Stay full */
-        31.25% { opacity: 0; } /* Fade out complete */
+    @keyframes slideLeft {
+        0%   { background-image: url('https://i.imgur.com/jOkIRVy.png'); transform: translateX(20%); }
+        4%   { transform: translateX(0); }
+        29%  { transform: translateX(0); }
+        33%  { transform: translateX(-20%); background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
 
-        31.26% { opacity: 0; background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
-        37.5% { opacity: 1; }
-        56.25% { opacity: 1; }
-        62.5% { opacity: 0; }
+        33.01% { transform: translateX(20%); }
+        37%  { transform: translateX(0); }
+        62%  { transform: translateX(0); }
+        66%  { transform: translateX(-20%); background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
 
-        62.51% { opacity: 0; background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
-        68.75% { opacity: 1; }
-        87.5% { opacity: 1; }
-        93.75% { opacity: 0; }
-
-        93.76% { opacity: 0; background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
-        100%  { opacity: 1; }   /* Fade in and stay until loop */
+        66.01% { transform: translateX(20%); }
+        70%  { transform: translateX(0); }
+        95%  { transform: translateX(0); }
+        100% { transform: translateX(-20%); background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
     }
 
     /* NAVBAR */
@@ -185,7 +182,7 @@
         }
     }
 
-    /* BUTTONS */
+    /* GREEN JOIN BUTTON */
     .btn {
         display: inline-block;
         padding: 10px 20px;
@@ -213,7 +210,7 @@
         background: #4752C4;
     }
 
-    /* COMMUNITY & STAFF */
+    /* COMMUNITY CARDS - CENTERED CONTENT */
     .community-container {
         display: flex;
         gap: 20px;
@@ -256,12 +253,15 @@
         margin: 0;
         display: block;
     }
+
+    /* Department Borders */
     .ems-border { border-color: #ff4c4c; }
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
+    /* STAFF SECTION - CENTERED CONTENT */
     .staff-container {
         display: flex;
         gap: 20px;
@@ -297,6 +297,8 @@
         font-size: 20px;
         opacity: 0.9;
     }
+
+    /* Role-specific border colors */
     .owner-border { border-color: orange; }
     .dev-border { border-color: #00ffff; }
     .admin-border { border-color: #ff9900; }
