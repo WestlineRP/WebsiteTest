@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your FiveM Server</title>
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+        color: white;
+    }
+
+    /* Background */
+    body {
+        background: url('https://wallpapercave.com/wp/wp1812460.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* Frosted Navbar */
+    .navbar {
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .navbar .logo {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+    }
+
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .navbar ul li a:hover {
+        color: #00aaff;
+    }
+
+    /* Sections */
+    .section {
+        padding: 120px 10%;
+        min-height: 100vh;
+    }
+
+    /* Frosted Glass Box */
+    .glass {
+        background: rgba(255,255,255,0.12);
+        padding: 40px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* Hero */
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #00aaff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 20px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #0088cc;
+    }
+
+    .rules-list li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">YOUR SERVER NAME</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#guide">Guide</a></li>
+        <li><a href="#info">Website</a></li>
+        <li><a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="section hero">
+    <div class="glass">
+        <h1>Welcome to Your FiveM Server</h1>
+        <p>Custom scripts, optimized performance, active staff, and immersive roleplay.</p>
+        <a href="fivem://connect/YOUR-IP-HERE" class="btn">Join Server</a>
+    </div>
+</section>
+
+<!-- RULES -->
+<section id="rules" class="section">
+    <div class="glass">
+        <h2>Server Rules</h2>
+        <ul class="rules-list">
+            <li>No RDM / VDM</li>
+            <li>Respect all players & staff</li>
+            <li>No exploiting or cheating</li>
+            <li>Follow all RP guidelines</li>
+            <li>Keep things realistic</li>
+        </ul>
+    </div>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="section">
+    <div class="glass">
+        <h2>New Player Guide</h2>
+        <p>Everything you need to know before joining the city.</p>
+        <ul>
+            <li>How to join the server</li>
+            <li>Whitelist application info</li>
+            <li>Required downloads</li>
+            <li>How to report issues</li>
+        </ul>
+    </div>
+</section>
+
+<!-- INFO -->
+<section id="info" class="section">
+    <div class="glass">
+        <h2>About Our Server</h2>
+        <p>
+            We offer a fully customized FiveM experience with unique scripts, 
+            optimized performance, and a dedicated development team.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
