@@ -70,17 +70,53 @@
         transform: scale(1.08);
     }
 
-    /* Player Counter */
+    /* IMPROVED PLAYER COUNTER */
     .player-counter-box {
-        background: rgba(0,0,0,0.55);
-        backdrop-filter: blur(12px);
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.25);
-        display: inline-block;
-        margin-bottom: 15px;
-        font-size: 18px;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(15px);
+        padding: 14px 28px;
+        border-radius: 16px;
+        border: 2px solid rgba(255,255,255,0.25);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        font-size: 20px;
         font-weight: bold;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .player-counter-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .status-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 12px rgba(255,255,255,0.6);
+        animation: pulseDot 2s infinite;
+    }
+
+    .status-online { background-color: #4CFF4C; }
+    .status-offline { background-color: #FF4C4C; }
+
+    @keyframes pulseDot {
+        0% { box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+        50% { box-shadow: 0 0 20px rgba(255,255,255,0.9); }
+        100% { box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+    }
+
+    .player-text {
+        font-size: 22px;
+    }
+
+    .player-numbers {
+        color: #aaffaa;
+        font-size: 24px;
     }
 
     /* Sections */
@@ -233,7 +269,7 @@
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
-    /* STAFF SECTION - NEW CARD STYLE */
+    /* STAFF SECTION - CARD STYLE */
     .staff-container {
         display: flex;
         gap: 20px;
@@ -270,9 +306,9 @@
         opacity: 0.9;
     }
 
-    /* Optional: Role-specific border colors */
+    /* Role-specific border colors */
     .owner-border { border-color: orange; }
-    .dev-border { border-color: #00ffff; } /* Cyan for Developer */
+    .dev-border { border-color: #00ffff; }
     .admin-border { border-color: #ff9900; }
     .mod-border { border-color: #99ff99; }
 
@@ -303,7 +339,10 @@
         Rules
     </a>
 
-    <div class="player-counter-box" id="playerCount">Players: Loading...</div>
+    <div class="player-counter-box" id="playerCount">
+        <span class="status-dot status-online"></span>
+        <span class="player-text">Players: <span class="player-numbers">Loading...</span></span>
+    </div>
 
     <div class="glass">
 
@@ -413,6 +452,8 @@
 
     async function updatePlayerCount() {
         const box = document.getElementById("playerCount");
+        const dot = box.querySelector('.status-dot');
+        const numbersSpan = box.querySelector('.player-numbers');
 
         try {
             const res = await fetch("https://servers-frontend.fivem.net/api/servers/single/8rgde5", {
@@ -426,15 +467,18 @@
             const players = data.Data.clients;
             const max = data.Data.sv_maxclients;
 
-            box.innerHTML = `
-                <span style="color:#4CFF4C; font-size:18px;">●</span>
-                Players: ${players}/${max}
-            `;
+            dot.classList.remove('status-offline');
+            dot.classList.add('status-online');
+
+            numbersSpan.innerHTML = `${players}/${max}`;
+            box.querySelector('.player-text').innerHTML = `Players Online: <span class="player-numbers">${players}/${max}</span>`;
+
         } catch (e) {
-            box.innerHTML = `
-                <span style="color:#FF4C4C; font-size:18px;">●</span>
-                Players: Offline
-            `;
+            dot.classList.remove('status-online');
+            dot.classList.add('status-offline');
+
+            numbersSpan.innerHTML = `Offline`;
+            box.querySelector('.player-text').innerHTML = `Server: <span class="player-numbers">Offline</span>`;
         }
     }
 
