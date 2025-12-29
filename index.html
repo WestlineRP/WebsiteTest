@@ -1,4 +1,186 @@
-<!-- STAFF (TEXT ONLY, NO IMAGE UI AT ALL) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westline RP</title>
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    /* Background Slideshow */
+    .slideshow {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        animation: slideShow 30s infinite;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(60%);
+    }
+
+    @keyframes slideShow {
+        0%   { background-image: url('https://wallpapercave.com/wp/wp1812460.jpg'); }
+        33%  { background-image: url('https://wallpapercave.com/wp/wp1812456.jpg'); }
+        66%  { background-image: url('https://wallpapercave.com/wp/wp1812462.jpg'); }
+        100% { background-image: url('https://wallpapercave.com/wp/wp1812460.jpg'); }
+    }
+
+    /* Navbar */
+    .navbar {
+        width: 100%;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .navbar ul li a:hover {
+        color: #00aaff;
+    }
+
+    /* Sections — ULTRA TIGHT */
+    .section {
+        padding: 30px 8%;
+        margin-top: 5px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.5s ease;
+    }
+
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .glass {
+        background: rgba(255,255,255,0.12);
+        padding: 25px;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    /* Hero */
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 120px;
+        padding-bottom: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #00aaff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 15px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #0088cc;
+    }
+
+    /* Staff Cards (TEXT ONLY) */
+    .staff-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .staff-card {
+        width: 220px;
+        padding: 15px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .staff-card:hover {
+        transform: scale(1.05);
+        background: rgba(255,255,255,0.25);
+    }
+
+    .staff-card h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .staff-card p {
+        margin-top: 5px;
+        font-size: 14px;
+        opacity: 0.9;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="slideshow"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Westline RP</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#staff">Staff</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#guide">Guide</a></li>
+        <li><a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="section hero">
+    <div class="glass">
+        <h1>Welcome to Westline RP</h1>
+        <p>Immersive roleplay. Custom scripts. Active staff. A city built for your story.</p>
+        <a href="fivem://connect/YOUR-IP-HERE" class="btn">Join Server</a>
+    </div>
+</section>
+
+<!-- STAFF (TEXT ONLY, NO IMAGES) -->
 <section id="staff" class="section">
     <div class="glass">
         <h2>Meet the Staff Team</h2>
@@ -7,7 +189,12 @@
 
             <div class="staff-card">
                 <h3>Goobify</h3>
-                <p>Owner / Developer</p>
+                <p>Developer</p>
+            </div>
+
+            <div class="staff-card">
+                <h3>Sadie</h3>
+                <p>Owner</p>
             </div>
 
             <div class="staff-card">
@@ -23,3 +210,51 @@
         </div>
     </div>
 </section>
+
+<!-- RULES -->
+<section id="rules" class="section">
+    <div class="glass">
+        <h2>Basic Rules</h2>
+        <ul>
+            <li>Respect all players and staff.</li>
+            <li>No RDM, VDM, or FailRP.</li>
+            <li>No exploiting, cheating, or modding.</li>
+            <li>Keep RP realistic and story‑driven.</li>
+            <li>Follow staff instructions at all times.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="section">
+    <div class="glass">
+        <h2>Basic New Player Guide</h2>
+        <ul>
+            <li>Join the Discord and read the rules.</li>
+            <li>Make a realistic character with a backstory.</li>
+            <li>Learn the city layout and job locations.</li>
+            <li>Use /report for help or issues.</li>
+            <li>Respect the RP of others and build stories.</li>
+        </ul>
+    </div>
+</section>
+
+<script>
+    // Scroll reveal effect
+    const sections = document.querySelectorAll('.section');
+
+    function reveal() {
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top;
+            if (top < window.innerHeight - 50) {
+                sec.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
+
+</body>
+</html>
