@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your FiveM Server</title>
+<title>Westline RP</title>
 
 <style>
     body, html {
@@ -12,15 +12,28 @@
         font-family: Arial, sans-serif;
         scroll-behavior: smooth;
         color: white;
+        overflow-x: hidden;
     }
 
-    /* Background */
-    body {
-        background: url('https://wallpapercave.com/wp/wp1812460.jpg') no-repeat center center fixed;
+    /* Background Slideshow */
+    .slideshow {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        animation: slideShow 30s infinite;
         background-size: cover;
+        background-position: center;
     }
 
-    /* Frosted Navbar */
+    @keyframes slideShow {
+        0%   { background-image: url('https://wallpapercave.com/wp/wp1812460.jpg'); }
+        33%  { background-image: url('https://wallpapercave.com/wp/wp1812456.jpg'); }
+        66%  { background-image: url('https://wallpapercave.com/wp/wp1812462.jpg'); }
+        100% { background-image: url('https://wallpapercave.com/wp/wp1812460.jpg'); }
+    }
+
+    /* Navbar */
     .navbar {
         width: 100%;
         padding: 20px 40px;
@@ -62,7 +75,6 @@
         min-height: 100vh;
     }
 
-    /* Frosted Glass Box */
     .glass {
         background: rgba(255,255,255,0.12);
         padding: 40px;
@@ -94,23 +106,61 @@
         background: #0088cc;
     }
 
-    .rules-list li {
-        margin: 10px 0;
-        font-size: 18px;
+    /* Staff Cards */
+    .staff-container {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .staff-card {
+        width: 250px;
+        padding: 20px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .staff-card:hover {
+        transform: scale(1.05);
+        background: rgba(255,255,255,0.25);
+    }
+
+    .staff-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .staff-card h3 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .staff-card p {
+        margin-top: 5px;
+        font-size: 16px;
+        opacity: 0.8;
     }
 </style>
 
 </head>
 <body>
 
+<div class="slideshow"></div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">YOUR SERVER NAME</div>
+    <div class="logo">Westline RP</div>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#rules">Rules</a></li>
         <li><a href="#guide">Guide</a></li>
-        <li><a href="#info">Website</a></li>
+        <li><a href="#staff">Staff</a></li>
         <li><a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a></li>
     </ul>
 </nav>
@@ -118,7 +168,7 @@
 <!-- HERO -->
 <section id="home" class="section hero">
     <div class="glass">
-        <h1>Welcome to Your FiveM Server</h1>
+        <h1>Welcome to Westline RP</h1>
         <p>Custom scripts, optimized performance, active staff, and immersive roleplay.</p>
         <a href="fivem://connect/YOUR-IP-HERE" class="btn">Join Server</a>
     </div>
@@ -128,7 +178,7 @@
 <section id="rules" class="section">
     <div class="glass">
         <h2>Server Rules</h2>
-        <ul class="rules-list">
+        <ul>
             <li>No RDM / VDM</li>
             <li>Respect all players & staff</li>
             <li>No exploiting or cheating</li>
@@ -142,7 +192,6 @@
 <section id="guide" class="section">
     <div class="glass">
         <h2>New Player Guide</h2>
-        <p>Everything you need to know before joining the city.</p>
         <ul>
             <li>How to join the server</li>
             <li>Whitelist application info</li>
@@ -152,14 +201,32 @@
     </div>
 </section>
 
-<!-- INFO -->
-<section id="info" class="section">
+<!-- STAFF -->
+<section id="staff" class="section">
     <div class="glass">
-        <h2>About Our Server</h2>
-        <p>
-            We offer a fully customized FiveM experience with unique scripts, 
-            optimized performance, and a dedicated development team.
-        </p>
+        <h2>Meet the Staff Team</h2>
+
+        <div class="staff-container">
+
+            <div class="staff-card">
+                <img src="https://i.imgur.com/4ZQZ4ZC.jpeg" alt="Staff">
+                <h3>Goobify</h3>
+                <p>Owner / Developer</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="https://i.imgur.com/4ZQZ4ZC.jpeg" alt="Staff">
+                <h3>Staff Member</h3>
+                <p>Admin</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="https://i.imgur.com/4ZQZ4ZC.jpeg" alt="Staff">
+                <h3>Staff Member</h3>
+                <p>Moderator</p>
+            </div>
+
+        </div>
     </div>
 </section>
 
