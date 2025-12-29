@@ -34,40 +34,39 @@
         100% { background-image: url('https://wallpapercave.com/wp/wp1812460.jpg'); }
     }
 
-    /* Navbar */
+    /* NAVBAR — CENTERED UI BAR */
     .navbar {
         width: 100%;
-        padding: 15px 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 15px 0;
         position: fixed;
         top: 0;
-        background: rgba(0,0,0,0.45);
-        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: center;
         z-index: 1000;
     }
 
-    .navbar .logo {
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    .navbar ul {
-        list-style: none;
+    .nav-ui {
+        background: rgba(0,0,0,0.55); /* darker than hero UI */
+        backdrop-filter: blur(12px);
+        padding: 10px 25px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.25);
         display: flex;
-        gap: 20px;
+        gap: 25px;
     }
 
-    .navbar ul li a {
+    .nav-ui a {
         color: white;
         text-decoration: none;
         font-size: 16px;
-        transition: 0.3s;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: 0.25s;
     }
 
-    .navbar ul li a:hover {
-        color: #00aaff;
+    .nav-ui a:hover {
+        background: rgba(255,255,255,0.18);
+        transform: scale(1.08);
     }
 
     /* Sections — ULTRA TIGHT */
@@ -98,7 +97,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding-top: 120px;
+        padding-top: 150px; /* moved down because navbar is centered */
         padding-bottom: 10px;
     }
 
@@ -115,6 +114,23 @@
 
     .btn:hover {
         background: #0088cc;
+    }
+
+    /* Discord Button */
+    .discord-btn {
+        display: inline-block;
+        padding: 10px 22px;
+        background: #5865F2;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        transition: 0.3s;
+    }
+
+    .discord-btn:hover {
+        background: #4752C4;
     }
 
     /* Staff Cards (TEXT ONLY) */
@@ -159,28 +175,31 @@
 
 <div class="slideshow"></div>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (CENTERED UI BUTTON BAR) -->
 <nav class="navbar">
-    <div class="logo">Westline RP</div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#staff">Staff</a></li>
-        <li><a href="#rules">Rules</a></li>
-        <li><a href="#guide">Guide</a></li>
-        <li><a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a></li>
-    </ul>
+    <div class="nav-ui">
+        <a href="#home">Home</a>
+        <a href="#staff">Staff</a>
+        <a href="#rules">Rules</a>
+        <a href="#guide">Guide</a>
+        <a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a>
+    </div>
 </nav>
 
 <!-- HERO -->
 <section id="home" class="section hero">
     <div class="glass">
+
+        <!-- DISCORD BUTTON ABOVE WELCOME TEXT -->
+        <a class="discord-btn" href="https://discord.gg/dEWmax9el-Hh" target="_blank">Join Our Discord</a>
+
         <h1>Welcome to Westline RP</h1>
         <p>Immersive roleplay. Custom scripts. Active staff. A city built for your story.</p>
-        <a href="fivem://connect/YOUR-IP-HERE" class="btn">Join Server</a>
+        <a href="https://cfx.re/join/8rgde5" class="btn" target="_blank">Join Server</a>
     </div>
 </section>
 
-<!-- STAFF (TEXT ONLY, NO IMAGES) -->
+<!-- STAFF -->
 <section id="staff" class="section">
     <div class="glass">
         <h2>Meet the Staff Team</h2>
@@ -189,12 +208,7 @@
 
             <div class="staff-card">
                 <h3>Goobify</h3>
-                <p>Developer</p>
-            </div>
-
-            <div class="staff-card">
-                <h3>Sadie</h3>
-                <p>Owner</p>
+                <p>Owner / Developer</p>
             </div>
 
             <div class="staff-card">
