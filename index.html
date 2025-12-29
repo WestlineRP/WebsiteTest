@@ -14,34 +14,41 @@
         overflow-x: hidden;
     }
 
-    /* SLIDE LEFT SLIDESHOW BACKGROUND */
-    .slideshow {
+    /* NEW SMOOTH SLIDE-LEFT SLIDESHOW */
+    .slideshow-container {
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
         z-index: -1;
+        overflow: hidden;
+        filter: brightness(60%);
+    }
+
+    .slide {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
         background-size: cover;
         background-position: center;
-        filter: brightness(60%);
-        animation: slideLeft 32s infinite linear;
+        opacity: 0;
+        transition: transform 1.8s ease, opacity 1.8s ease;
+        transform: translateX(100%);
     }
 
-    @keyframes slideLeft {
-        0%   { background-image: url('https://i.imgur.com/jOkIRVy.png'); transform: translateX(20%); }
-        4%   { transform: translateX(0); }
-        29%  { transform: translateX(0); }
-        33%  { transform: translateX(-20%); background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
-
-        33.01% { transform: translateX(20%); }
-        37%  { transform: translateX(0); }
-        62%  { transform: translateX(0); }
-        66%  { transform: translateX(-20%); background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
-
-        66.01% { transform: translateX(20%); }
-        70%  { transform: translateX(0); }
-        95%  { transform: translateX(0); }
-        100% { transform: translateX(-20%); background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
+    .slide.active {
+        opacity: 1;
+        transform: translateX(0);
     }
+
+    .slide.prev {
+        transform: translateX(-100%);
+    }
+
+    /* Your 4 images */
+    .slide:nth-child(1) { background-image: url('https://i.imgur.com/jOkIRVy.png'); }
+    .slide:nth-child(2) { background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
+    .slide:nth-child(3) { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
+    .slide:nth-child(4) { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
 
     /* NAVBAR */
     .navbar {
@@ -76,7 +83,7 @@
         transform: scale(1.08);
     }
 
-    /* IMPROVED PLAYER COUNTER */
+    /* PLAYER COUNTER */
     .player-counter-box {
         background: rgba(255,255,255,0.12);
         backdrop-filter: blur(15px);
@@ -111,13 +118,8 @@
         50% { box-shadow: 0 0 20px rgba(255,255,255,0.9); }
         100% { box-shadow: 0 0 12px rgba(255,255,255,0.6); }
     }
-    .player-text {
-        font-size: 22px;
-    }
-    .player-numbers {
-        color: #aaffaa;
-        font-size: 24px;
-    }
+    .player-text { font-size: 22px; }
+    .player-numbers { color: #aaffaa; font-size: 24px; }
 
     /* Sections */
     .section {
@@ -150,39 +152,20 @@
         flex-direction: column;
     }
 
-    /* ORANGE PULSE-SHINE HEADER */
     .hero h1 {
-        position: relative;
         font-size: 48px;
         font-weight: bold;
         color: orange;
-        text-shadow:
-            0 0 6px rgba(255,165,0,0.6),
-            0 0 12px rgba(255,165,0,0.4);
+        text-shadow: 0 0 6px rgba(255,165,0,0.6), 0 0 12px rgba(255,165,0,0.4);
         animation: pulseShine 2.4s infinite ease-in-out;
     }
     @keyframes pulseShine {
-        0% {
-            text-shadow:
-                0 0 6px rgba(255,165,0,0.4),
-                0 0 12px rgba(255,165,0,0.2);
-            filter: brightness(1);
-        }
-        50% {
-            text-shadow:
-                0 0 14px rgba(255,165,0,1),
-                0 0 28px rgba(255,165,0,0.8);
-            filter: brightness(1.25);
-        }
-        100% {
-            text-shadow:
-                0 0 6px rgba(255,165,0,0.4),
-                0 0 12px rgba(255,165,0,0.2);
-            filter: brightness(1);
-        }
+        0% { text-shadow: 0 0 6px rgba(255,165,0,0.4), 0 0 12px rgba(255,165,0,0.2); filter: brightness(1); }
+        50% { text-shadow: 0 0 14px rgba(255,165,0,1), 0 0 28px rgba(255,165,0,0.8); filter: brightness(1.25); }
+        100% { text-shadow: 0 0 6px rgba(255,165,0,0.4), 0 0 12px rgba(255,165,0,0.2); filter: brightness(1); }
     }
 
-    /* GREEN JOIN BUTTON */
+    /* BUTTONS */
     .btn {
         display: inline-block;
         padding: 10px 20px;
@@ -193,9 +176,7 @@
         transition: 0.3s;
         font-weight: bold;
     }
-    .btn:hover {
-        background: #218838;
-    }
+    .btn:hover { background: #218838; }
     .discord-btn {
         display: inline-block;
         padding: 10px 22px;
@@ -206,12 +187,10 @@
         font-weight: bold;
         transition: 0.3s;
     }
-    .discord-btn:hover {
-        background: #4752C4;
-    }
+    .discord-btn:hover { background: #4752C4; }
 
-    /* COMMUNITY CARDS - CENTERED CONTENT */
-    .community-container {
+    /* COMMUNITY & STAFF */
+    .community-container, .staff-container {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
@@ -253,21 +232,12 @@
         margin: 0;
         display: block;
     }
-
-    /* Department Borders */
     .ems-border { border-color: #ff4c4c; }
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
-    /* STAFF SECTION - CENTERED CONTENT */
-    .staff-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     .staff-card {
         width: 250px;
         background: rgba(255,255,255,0.15);
@@ -287,18 +257,8 @@
         transform: scale(1.05);
         background: rgba(255,255,255,0.25);
     }
-    .staff-card h3 {
-        margin: 0 0 10px 0;
-        font-size: 26px;
-        font-weight: bold;
-    }
-    .staff-card p {
-        margin: 0;
-        font-size: 20px;
-        opacity: 0.9;
-    }
-
-    /* Role-specific border colors */
+    .staff-card h3 { margin: 0 0 10px 0; font-size: 26px; font-weight: bold; }
+    .staff-card p { margin: 0; font-size: 20px; opacity: 0.9; }
     .owner-border { border-color: orange; }
     .dev-border { border-color: #00ffff; }
     .admin-border { border-color: #ff9900; }
@@ -306,7 +266,14 @@
 </style>
 </head>
 <body>
-<div class="slideshow"></div>
+
+<!-- NEW SLIDESHOW STRUCTURE -->
+<div class="slideshow-container">
+    <div class="slide active"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+</div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -345,27 +312,22 @@
     <div class="glass">
         <h2 style="text-align: center;">Community Servers</h2>
         <div class="community-container">
-            <!-- EMS -->
             <a href="https://discord.gg/dTtHsA799r" target="_blank" class="community-card ems-border">
                 <img src="https://i.imgur.com/R4g5QuW.jpeg" class="community-img" alt="EMS ambulance">
                 <h3>EMS</h3>
             </a>
-            <!-- PD -->
             <a href="https://discord.gg/aRm4qqkzJF" target="_blank" class="community-card pd-border">
                 <img src="https://i.imgur.com/1bc7IDy.jpeg" class="community-img" alt="Police car">
                 <h3>Police Department</h3>
             </a>
-            <!-- Real Estate -->
             <a href="https://discord.gg/bheS82uczY" target="_blank" class="community-card realestate-border">
                 <img src="https://i.imgur.com/4qcTtDK.png" class="community-img" alt="House for sale">
                 <h3>Real Estate</h3>
             </a>
-            <!-- Factions -->
             <a href="https://discord.gg/bqbMtFkGdj" target="_blank" class="community-card factions-border">
                 <img src="https://i.imgur.com/vTvRAGd.jpeg" class="community-img" alt="Factions map">
                 <h3>Factions</h3>
             </a>
-            <!-- Business Center -->
             <a href="https://discord.gg/PXYtCz53mP" target="_blank" class="community-card business-border">
                 <img src="https://i.imgur.com/fqzN8G5.png" class="community-img" alt="Arcadius Business Center">
                 <h3>Business Center</h3>
@@ -379,22 +341,18 @@
     <div class="glass">
         <h2 style="text-align: center;">Meet the Staff Team</h2>
         <div class="staff-container">
-            <!-- Sadie - Owner -->
             <div class="staff-card owner-border">
                 <h3>Sadie</h3>
                 <p>Owner</p>
             </div>
-            <!-- Goob - Developer -->
             <div class="staff-card dev-border">
                 <h3>Goob</h3>
                 <p>Developer</p>
             </div>
-            <!-- Placeholder Admin -->
             <div class="staff-card admin-border">
                 <h3>Staff Member</h3>
                 <p>Admin</p>
             </div>
-            <!-- Placeholder Moderator -->
             <div class="staff-card mod-border">
                 <h3>Staff Member</h3>
                 <p>Moderator</p>
@@ -406,6 +364,34 @@
 <section id="rules" class="section"></section>
 
 <script>
+    // SLIDESHOW LOGIC
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function nextSlide() {
+        // Mark current as previous (slides out left)
+        slides[current].classList.remove('active');
+        slides[current].classList.add('prev');
+
+        // Next slide
+        current = (current + 1) % slides.length;
+
+        // Activate new slide (slides in from right)
+        slides[current].classList.add('active');
+
+        // Clean up prev class after animation
+        setTimeout(() => {
+            slides.forEach(s => s.classList.remove('prev'));
+        }, 1800);
+    }
+
+    // Start slideshow: change every 8 seconds
+    setInterval(nextSlide, 8000);
+
+    // Initial setup
+    slides[0].classList.add('active');
+
+    // SCROLL REVEAL
     const sections = document.querySelectorAll('.section');
     function reveal() {
         sections.forEach(sec => {
@@ -418,6 +404,7 @@
     window.addEventListener('scroll', reveal);
     reveal();
 
+    // PLAYER COUNT
     async function updatePlayerCount() {
         const box = document.getElementById("playerCount");
         const dot = box.querySelector('.status-dot');
