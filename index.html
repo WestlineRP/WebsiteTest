@@ -116,46 +116,37 @@
         flex-direction: column;
     }
 
-    /* ⭐ FIXED GTA-STYLE ORANGE HEADER ⭐ */
+    /* ⭐ ORANGE PULSE-SHINE HEADER (NO BOX, NO BAR) ⭐ */
     .hero h1 {
         position: relative;
         font-size: 48px;
         font-weight: bold;
         color: orange;
-        text-shadow: 0 0 12px rgba(255,165,0,0.7);
-        animation: headerGlow 3s infinite ease-in-out;
-        overflow: hidden; /* keeps shine inside text */
-        display: inline-block; /* prevents full-width bar */
+        text-shadow:
+            0 0 6px rgba(255,165,0,0.6),
+            0 0 12px rgba(255,165,0,0.4);
+        animation: pulseShine 2.4s infinite ease-in-out;
     }
 
-    /* Orange glow pulse */
-    @keyframes headerGlow {
-        0% { text-shadow: 0 0 8px rgba(255,165,0,0.4); }
-        50% { text-shadow: 0 0 18px rgba(255,165,0,1); }
-        100% { text-shadow: 0 0 8px rgba(255,165,0,0.4); }
-    }
-
-    /* Orange scanline shine */
-    .hero h1::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -120%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(255,165,0,0.6) 50%,
-            transparent 0%
-        );
-        animation: scanline 2.8s infinite;
-        pointer-events: none;
-    }
-
-    @keyframes scanline {
-        0% { left: -120%; }
-        100% { left: 120%; }
+    @keyframes pulseShine {
+        0% {
+            text-shadow:
+                0 0 6px rgba(255,165,0,0.4),
+                0 0 12px rgba(255,165,0,0.2);
+            filter: brightness(1);
+        }
+        50% {
+            text-shadow:
+                0 0 14px rgba(255,165,0,1),
+                0 0 28px rgba(255,165,0,0.8);
+            filter: brightness(1.25);
+        }
+        100% {
+            text-shadow:
+                0 0 6px rgba(255,165,0,0.4),
+                0 0 12px rgba(255,165,0,0.2);
+            filter: brightness(1);
+        }
     }
 
     /* GREEN JOIN BUTTON */
