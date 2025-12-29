@@ -124,6 +124,7 @@
         text-decoration: none;
         border-radius: 8px;
         transition: 0.3s;
+        font-weight: bold; /* FIX: JOIN CITY NOW BOLD */
     }
 
     .btn:hover {
@@ -216,7 +217,7 @@
             <!-- JOIN CITY BUTTON -->
             <a href="https://cfx.re/join/8rgde5" class="btn" target="_blank">Join City</a>
 
-            <!-- DISCORD BUTTON MOVED DOWN -->
+            <!-- DISCORD BUTTON -->
             <a class="discord-btn" href="https://discord.gg/dEWmax9el-Hh" target="_blank">Join Discord</a>
 
         </div>
@@ -294,12 +295,17 @@
     window.addEventListener('scroll', reveal);
     reveal();
 
-    // PLAYER COUNTER + STATUS DOT
+    // PLAYER COUNTER + STATUS DOT (REFRESH FIXED)
     async function updatePlayerCount() {
         const box = document.getElementById("playerCount");
 
         try {
-            const res = await fetch("https://servers-frontend.fivem.net/api/servers/single/8rgde5");
+            const res = await fetch("https://servers-frontend.fivem.net/api/servers/single/8rgde5", {
+                method: "GET",
+                mode: "cors",
+                cache: "no-cache"
+            });
+
             const data = await res.json();
 
             const players = data.Data.clients;
