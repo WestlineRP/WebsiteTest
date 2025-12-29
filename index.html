@@ -44,22 +44,32 @@
         100% { transform: rotate(360deg); }
     }
 
-    /* Background Slideshow */
+    /* SMOOTH FADE SLIDESHOW */
     .slideshow {
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
         z-index: -1;
-        animation: slideShow 30s infinite;
         background-size: cover;
         background-position: center;
         filter: brightness(60%);
+        animation: fadeSlide 32s infinite;
     }
-    @keyframes slideShow {
-        0% { background-image: url('https://i.imgur.com/jOkIRVy.png'); }
-        33% { background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
-        66% { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
-        100% { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
+    @keyframes fadeSlide {
+        0%   { opacity: 0; background-image: url('https://i.imgur.com/jOkIRVy.png'); }
+        4%   { opacity: 1; }
+        29%  { opacity: 1; }
+        33%  { opacity: 0; }
+
+        33.01% { opacity: 0; background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
+        37%  { opacity: 1; }
+        62%  { opacity: 1; }
+        66%  { opacity: 0; }
+
+        66.01% { opacity: 0; background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
+        70%  { opacity: 1; }
+        95%  { opacity: 1; }
+        100% { opacity: 0; background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
     }
 
     /* NAVBAR */
@@ -154,7 +164,7 @@
         border: 1px solid rgba(255,255,255,0.25);
     }
 
-    /* HERO WITH ENHANCED FADE-IN */
+    /* HERO WITH FADE-IN */
     .hero {
         display: flex;
         justify-content: center;
@@ -172,9 +182,8 @@
         transform: scale(1) translateY(0);
     }
 
-    /* ORANGE PULSE-SHINE HEADER */
+    /* ORANGE PULSE HEADER */
     .hero h1 {
-        position: relative;
         font-size: 48px;
         font-weight: bold;
         color: orange;
@@ -211,13 +220,14 @@
     }
     .discord-btn:hover { background: #4752C4; }
 
-    /* COMMUNITY & STAFF */
+    /* COMMUNITY & STAFF CONTAINERS */
     .community-container, .staff-container {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .community-card {
         width: 300px;
         background: rgba(255,255,255,0.15);
@@ -252,12 +262,15 @@
         object-fit: cover;
         border-radius: 12px 12px 0 0;
     }
+
+    /* Department Borders */
     .ems-border { border-color: #ff4c4c; }
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
     .factions-border { border-color: orange; }
     .business-border { border-color: purple; }
 
+    /* STAFF CARDS */
     .staff-card {
         width: 250px;
         background: rgba(255,255,255,0.15);
@@ -277,6 +290,16 @@
         transform: scale(1.05);
         background: rgba(255,255,255,0.25);
     }
+    .staff-card h3 {
+        margin: 0 0 10px 0;
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .staff-card p {
+        margin: 0;
+        font-size: 20px;
+        opacity: 0.9;
+    }
     .owner-border { border-color: orange; }
     .dev-border { border-color: #00ffff; }
     .admin-border { border-color: #ff9900; }
@@ -290,6 +313,7 @@
     <div class="spinner"></div>
 </div>
 
+<!-- SLIDESHOW BACKGROUND -->
 <div class="slideshow"></div>
 
 <!-- NAVBAR -->
@@ -324,7 +348,7 @@
     </div>
 </section>
 
-<!-- COMMUNITY -->
+<!-- COMMUNITY SERVERS -->
 <section id="community" class="section">
     <div class="glass">
         <h2 style="text-align: center;">Community Servers</h2>
@@ -353,7 +377,7 @@
     </div>
 </section>
 
-<!-- STAFF -->
+<!-- STAFF TEAM -->
 <section id="staff" class="section">
     <div class="glass">
         <h2 style="text-align: center;">Meet the Staff Team</h2>
@@ -386,14 +410,13 @@
         const preloader = document.getElementById('preloader');
         const hero = document.querySelector('.hero');
 
-        // Hide preloader after a short delay for smooth effect
         setTimeout(() => {
             preloader.classList.add('hidden');
-            hero.classList.add('loaded'); // Trigger hero fade-in
+            hero.classList.add('loaded');
         }, 800);
     });
 
-    // SCROLL REVEAL FOR OTHER SECTIONS
+    // SCROLL REVEAL
     const sections = document.querySelectorAll('.section');
     function reveal() {
         sections.forEach(sec => {
@@ -406,7 +429,7 @@
     window.addEventListener('scroll', reveal);
     reveal();
 
-    // PLAYER COUNT UPDATE
+    // PLAYER COUNT
     async function updatePlayerCount() {
         const box = document.getElementById("playerCount");
         const dot = box.querySelector('.status-dot');
