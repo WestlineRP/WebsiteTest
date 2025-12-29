@@ -34,7 +34,7 @@
         100% { background-image: url('https://i.imgur.com/jOkIRVy.png'); }
     }
 
-    /* NAVBAR — CENTERED UI BAR */
+    /* NAVBAR */
     .navbar {
         width: 100%;
         padding: 15px 0;
@@ -70,7 +70,7 @@
         transform: scale(1.08);
     }
 
-    /* Player Counter UI */
+    /* Player Counter */
     .player-counter-box {
         background: rgba(0,0,0,0.55);
         backdrop-filter: blur(12px);
@@ -83,7 +83,7 @@
         font-weight: bold;
     }
 
-    /* Sections — ULTRA TIGHT */
+    /* Sections */
     .section {
         padding: 30px 8%;
         margin-top: 5px;
@@ -131,7 +131,6 @@
         background: #0088cc;
     }
 
-    /* Discord Button */
     .discord-btn {
         display: inline-block;
         padding: 10px 22px;
@@ -147,7 +146,7 @@
         background: #4752C4;
     }
 
-    /* Staff & Community Cards */
+    /* Staff Cards */
     .staff-container {
         display: flex;
         gap: 20px;
@@ -177,10 +176,43 @@
         font-weight: bold;
     }
 
-    .staff-card p {
-        margin-top: 5px;
-        font-size: 14px;
-        opacity: 0.9;
+    /* COMMUNITY CARDS */
+    .community-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .community-card {
+        width: 220px;
+        padding: 15px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        transition: 0.3s;
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    .community-card:hover {
+        transform: scale(1.05);
+        background: rgba(255,255,255,0.25);
+    }
+
+    .community-card h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .community-img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
     }
 </style>
 
@@ -286,31 +318,25 @@
     <div class="glass">
         <h2>Community Services</h2>
 
-        <div class="staff-container">
+        <div class="community-container">
 
             <!-- EMS -->
-            <div class="staff-card">
-                <img src="https://i.imgur.com/EMS_IMAGE.png" alt="EMS" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <a href="https://discord.gg/YOUR-EMS-DISCORD" target="_blank" class="community-card">
+                <img src="https://i.imgur.com/EMS_IMAGE.png" class="community-img">
                 <h3>EMS</h3>
-                <p>Medical Response & Rescue</p>
-                <a class="discord-btn" href="https://discord.gg/YOUR-EMS-DISCORD" target="_blank">Join EMS Discord</a>
-            </div>
+            </a>
 
             <!-- PD -->
-            <div class="staff-card">
-                <img src="https://i.imgur.com/PD_IMAGE.png" alt="PD" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <a href="https://discord.gg/YOUR-PD-DISCORD" target="_blank" class="community-card">
+                <img src="https://i.imgur.com/PD_IMAGE.png" class="community-img">
                 <h3>Police Department</h3>
-                <p>Law Enforcement & Patrol</p>
-                <a class="discord-btn" href="https://discord.gg/YOUR-PD-DISCORD" target="_blank">Join PD Discord</a>
-            </div>
+            </a>
 
             <!-- Real Estate -->
-            <div class="staff-card">
-                <img src="https://i.imgur.com/REALESTATE_IMAGE.png" alt="Real Estate" style="width:100%; border-radius:8px; margin-bottom:10px;">
+            <a href="https://discord.gg/YOUR-REALESTATE-DISCORD" target="_blank" class="community-card">
+                <img src="https://i.imgur.com/REALESTATE_IMAGE.png" class="community-img">
                 <h3>Real Estate</h3>
-                <p>Property Sales & Rentals</p>
-                <a class="discord-btn" href="https://discord.gg/YOUR-REALESTATE-DISCORD" target="_blank">Join Real Estate Discord</a>
-            </div>
+            </a>
 
         </div>
     </div>
