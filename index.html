@@ -24,6 +24,7 @@
         animation: slideShow 30s infinite;
         background-size: cover;
         background-position: center;
+        filter: brightness(60%);
     }
 
     @keyframes slideShow {
@@ -73,6 +74,14 @@
     .section {
         padding: 120px 10%;
         min-height: 100vh;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 1s ease;
+    }
+
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .glass {
@@ -169,7 +178,7 @@
 <section id="home" class="section hero">
     <div class="glass">
         <h1>Welcome to Westline RP</h1>
-        <p>Custom scripts, optimized performance, active staff, and immersive roleplay.</p>
+        <p>Immersive roleplay. Custom scripts. Active staff. A city built for your story.</p>
         <a href="fivem://connect/YOUR-IP-HERE" class="btn">Join Server</a>
     </div>
 </section>
@@ -177,13 +186,13 @@
 <!-- RULES -->
 <section id="rules" class="section">
     <div class="glass">
-        <h2>Server Rules</h2>
+        <h2>Basic Rules</h2>
         <ul>
-            <li>No RDM / VDM</li>
-            <li>Respect all players & staff</li>
-            <li>No exploiting or cheating</li>
-            <li>Follow all RP guidelines</li>
-            <li>Keep things realistic</li>
+            <li>Respect all players and staff.</li>
+            <li>No RDM, VDM, or FailRP.</li>
+            <li>No exploiting, cheating, or modding.</li>
+            <li>Keep RP realistic and story‑driven.</li>
+            <li>Follow staff instructions at all times.</li>
         </ul>
     </div>
 </section>
@@ -191,12 +200,13 @@
 <!-- GUIDE -->
 <section id="guide" class="section">
     <div class="glass">
-        <h2>New Player Guide</h2>
+        <h2>Basic New Player Guide</h2>
         <ul>
-            <li>How to join the server</li>
-            <li>Whitelist application info</li>
-            <li>Required downloads</li>
-            <li>How to report issues</li>
+            <li>Join the Discord and read the rules.</li>
+            <li>Make a realistic character with a backstory.</li>
+            <li>Learn the city layout and job locations.</li>
+            <li>Use /report for help or issues.</li>
+            <li>Respect the RP of others and build stories.</li>
         </ul>
     </div>
 </section>
@@ -229,6 +239,23 @@
         </div>
     </div>
 </section>
+
+<script>
+    // Scroll reveal effect
+    const sections = document.querySelectorAll('.section');
+
+    function reveal() {
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                sec.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
 
 </body>
 </html>
