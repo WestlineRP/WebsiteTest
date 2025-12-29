@@ -116,7 +116,7 @@
         flex-direction: column;
     }
 
-    /* ⭐ ORANGE PULSE-SHINE HEADER (NO BOX, NO BAR) ⭐ */
+    /* ⭐ ORANGE PULSE-SHINE HEADER ⭐ */
     .hero h1 {
         position: relative;
         font-size: 48px;
@@ -180,36 +180,6 @@
         background: #4752C4;
     }
 
-    /* Staff Cards */
-    .staff-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .staff-card {
-        width: 220px;
-        padding: 15px;
-        background: rgba(255,255,255,0.15);
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.25);
-        text-align: center;
-        transition: 0.3s;
-    }
-
-    .staff-card:hover {
-        transform: scale(1.05);
-        background: rgba(255,255,255,0.25);
-    }
-
-    .staff-card h3 {
-        margin: 0;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
     /* COMMUNITY CARDS */
     .community-container {
         display: flex;
@@ -259,6 +229,10 @@
     .pd-border { border-color: #4c8cff; }
     .realestate-border { border-color: #4cff4c; }
 
+    /* NEW COMMUNITY SERVER BORDERS */
+    .factions-border { border-color: orange; }
+    .business-border { border-color: purple; }
+
 </style>
 
 </head>
@@ -272,7 +246,6 @@
         <a href="#home">Home</a>
         <a href="#community">Community</a>
         <a href="#staff">Staff</a>
-        <!--<a href="#guide">Guide</a>-->
         <a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a>
     </div>
 </nav>
@@ -280,7 +253,6 @@
 <!-- HERO -->
 <section id="home" class="section hero">
 
-    <!-- SMALL RULES BUTTON ABOVE PLAYER COUNT -->
     <a href="https://docs.google.com/document/d/15k73DoFJU1GFHkNl1rPQY6DUAkDTCA1Tfe34wBckB9Y/edit?usp=drivesdk" 
        target="_blank" 
        class="btn"
@@ -328,6 +300,18 @@
                 <h3>Real Estate</h3>
             </a>
 
+            <!-- Factions (NEW) -->
+            <a href="https://discord.gg/bqbMtFkGdj" target="_blank" class="community-card factions-border">
+                <img src="https://i.imgur.com/jOkIRVy.png" class="community-img">
+                <h3>Factions</h3>
+            </a>
+
+            <!-- Business Center (NEW) -->
+            <a href="https://discord.gg/PXYtCz53mP" target="_blank" class="community-card business-border">
+                <img src="https://i.imgur.com/jOkIRVy.png" class="community-img">
+                <h3>Business Center</h3>
+            </a>
+
         </div>
     </div>
 </section>
@@ -363,23 +347,7 @@
     </div>
 </section>
 
-<!-- RULES (REMOVED FROM OLD LOCATION) -->
 <section id="rules" class="section"></section>
-
-<!-- GUIDE (COMMENTED OUT)
-<section id="guide" class="section">
-    <div class="glass">
-        <h2>Basic New Player Guide</h2>
-        <ul>
-            <li>Join the Discord and read the rules.</li>
-            <li>Make a realistic character with a backstory.</li>
-            <li>Learn the city layout and job locations.</li>
-            <li>Use /report for help or issues.</li>
-            <li>Respect the RP of others and build stories.</li>
-        </ul>
-    </div>
-</section>
--->
 
 <script>
     const sections = document.querySelectorAll('.section');
