@@ -44,7 +44,7 @@
     .slide:nth-child(2) { background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
     .slide:nth-child(3) { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
     .slide:nth-child(4) { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
-    /* REVAMPED NAVBAR WITH SOCIAL BUTTONS */
+    /* REVAMPED NAVBAR WITH IMAGE TIKTOK BUTTON */
     .navbar {
         position: fixed;
         top: 0;
@@ -67,7 +67,7 @@
         align-items: center;
         gap: 60px;
         pointer-events: auto;
-        justify-content: space-between; /* Allows logo left, links center, social right */
+        justify-content: space-between;
         width: auto;
         max-width: 90%;
     }
@@ -123,32 +123,24 @@
         left: 0;
     }
 
-    /* SOCIAL BUTTONS ON THE RIGHT */
+    /* TIKTOK IMAGE BUTTON ON THE RIGHT */
     .nav-social {
         display: flex;
-        gap: 15px;
         align-items: center;
-    }
-    .social-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    .social-btn:hover {
-        transform: translateY(-4px) scale(1.1);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
     }
     .tiktok-btn {
-        background: #000000;
+        display: block;
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease;
+    }
+    .tiktok-btn:hover {
+        transform: translateY(-4px) scale(1.15);
     }
     .tiktok-btn img {
-        width: 24px;
-        height: 24px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
     /* PLAYER COUNTER */
@@ -351,7 +343,7 @@
     <div class="slide"></div>
 </div>
 
-<!-- NAVBAR WITH TIKTOK BUTTON ON THE RIGHT -->
+<!-- NAVBAR WITH TIKTOK IMAGE BUTTON ON THE RIGHT -->
 <nav class="navbar">
     <div class="nav-ui">
         <div class="nav-left">
@@ -365,8 +357,8 @@
             </div>
         </div>
         <div class="nav-social">
-            <a href="https://www.tiktok.com/@westlinerp4?_r=1&_t=ZP-92dmj8XX1mp" target="_blank" class="social-btn tiktok-btn" title="TikTok">
-                <img src="https://sf-tb-sg.ibytedtos.com/obj/ies-fe-bytedtos-alisg/tts/static/images/logo_black.svg" alt="TikTok">
+            <a href="https://www.tiktok.com/@westlinerp4?_r=1&_t=ZP-92dmj8XX1mp" target="_blank" class="tiktok-btn" title="TikTok">
+                <img src="https://sf-static.tiktokcdn.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png" alt="TikTok">
             </a>
         </div>
     </div>
