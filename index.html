@@ -44,7 +44,7 @@
     .slide:nth-child(2) { background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
     .slide:nth-child(3) { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
     .slide:nth-child(4) { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
-    /* REVAMPED NAVBAR WITH IMAGE TIKTOK BUTTON */
+    /* REVAMPED NAVBAR WITH ROUNDED TIKTOK IMAGE BUTTON */
     .navbar {
         position: fixed;
         top: 0;
@@ -123,24 +123,28 @@
         left: 0;
     }
 
-    /* TIKTOK IMAGE BUTTON ON THE RIGHT */
+    /* TIKTOK IMAGE BUTTON - NOW FULLY ROUNDED */
     .nav-social {
         display: flex;
         align-items: center;
     }
     .tiktok-btn {
         display: block;
-        width: 40px;
-        height: 40px;
-        transition: transform 0.3s ease;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%; /* Perfect circle */
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
     .tiktok-btn:hover {
         transform: translateY(-4px) scale(1.15);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
     }
     .tiktok-btn img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover; /* Ensures the icon fills the circle nicely */
     }
 
     /* PLAYER COUNTER */
@@ -343,7 +347,7 @@
     <div class="slide"></div>
 </div>
 
-<!-- NAVBAR WITH TIKTOK IMAGE BUTTON ON THE RIGHT -->
+<!-- NAVBAR WITH ROUNDED TIKTOK IMAGE BUTTON ON THE RIGHT -->
 <nav class="navbar">
     <div class="nav-ui">
         <div class="nav-left">
