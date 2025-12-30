@@ -44,7 +44,7 @@
     .slide:nth-child(2) { background-image: url('https://i.imgur.com/1M5t1n3.jpeg'); }
     .slide:nth-child(3) { background-image: url('https://i.imgur.com/1sn083k.jpeg'); }
     .slide:nth-child(4) { background-image: url('https://i.imgur.com/1c9jifi.jpeg'); }
-    /* REVAMPED NAVBAR */
+    /* REVAMPED NAVBAR WITH SOCIAL BUTTONS */
     .navbar {
         position: fixed;
         top: 0;
@@ -67,6 +67,14 @@
         align-items: center;
         gap: 60px;
         pointer-events: auto;
+        justify-content: space-between; /* Allows logo left, links center, social right */
+        width: auto;
+        max-width: 90%;
+    }
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 60px;
     }
     .nav-logo {
         font-size: 34px;
@@ -114,6 +122,35 @@
         width: 100%;
         left: 0;
     }
+
+    /* SOCIAL BUTTONS ON THE RIGHT */
+    .nav-social {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .social-btn:hover {
+        transform: translateY(-4px) scale(1.1);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+    .tiktok-btn {
+        background: #000000;
+    }
+    .tiktok-btn img {
+        width: 24px;
+        height: 24px;
+    }
+
     /* PLAYER COUNTER */
     .player-counter-box {
         background: rgba(255,255,255,0.12);
@@ -314,16 +351,23 @@
     <div class="slide"></div>
 </div>
 
-<!-- REVAMPED NAVBAR (added About link) -->
+<!-- NAVBAR WITH TIKTOK BUTTON ON THE RIGHT -->
 <nav class="navbar">
     <div class="nav-ui">
-        <div class="nav-logo">Westline RP</div>
-        <div class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#community">Community</a>
-            <a href="#staff">Staff</a>
-            <a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a>
+        <div class="nav-left">
+            <div class="nav-logo">Westline RP</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#community">Community</a>
+                <a href="#staff">Staff</a>
+                <a href="https://YOUR-TEBEX-LINK" target="_blank">Tebex</a>
+            </div>
+        </div>
+        <div class="nav-social">
+            <a href="https://www.tiktok.com/@westlinerp4?_r=1&_t=ZP-92dmj8XX1mp" target="_blank" class="social-btn tiktok-btn" title="TikTok">
+                <img src="https://sf-tb-sg.ibytedtos.com/obj/ies-fe-bytedtos-alisg/tts/static/images/logo_black.svg" alt="TikTok">
+            </a>
         </div>
     </div>
 </nav>
@@ -442,37 +486,31 @@
     </div>
 </section>
 
-<!-- STAFF (updated with new members) -->
+<!-- STAFF -->
 <section id="staff" class="section">
     <div class="glass">
         <h2 style="text-align: center;">Meet the Staff Team</h2>
         <div class="staff-container">
-            <!-- Sadie - Owner -->
             <div class="staff-card owner-border">
                 <h3>Sadie</h3>
                 <p>Owner</p>
             </div>
-            <!-- Goob - Developer -->
             <div class="staff-card dev-border">
                 <h3>Goob</h3>
                 <p>Developer</p>
             </div>
-            <!-- Bob - Admin -->
             <div class="staff-card admin-border">
                 <h3>Bob</h3>
                 <p>Admin</p>
             </div>
-            <!-- Storm - Trial Admin -->
             <div class="staff-card trial-admin-border">
                 <h3>Storm</h3>
                 <p>Trial Admin</p>
             </div>
-            <!-- Rich - Trial Admin -->
             <div class="staff-card trial-admin-border">
                 <h3>Rich</h3>
                 <p>Trial Admin</p>
             </div>
-            <!-- Mathew - Trial Admin -->
             <div class="staff-card trial-admin-border">
                 <h3>Mathew</h3>
                 <p>Trial Admin</p>
