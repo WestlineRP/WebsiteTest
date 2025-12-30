@@ -123,29 +123,28 @@
         left: 0;
     }
 
-    /* TIKTOK FLOATING BUTTON - OUTSIDE NAVBAR, FIXED ON SCREEN */
-    .tiktok-floating {
+    /* TIKTOK ICON BUTTON - OUTSIDE NAVBAR, TOP-RIGHT CORNER */
+    .tiktok-top-right {
         position: fixed;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
+        top: 30px; /* Matches navbar padding */
+        right: 30px;
         z-index: 999;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         overflow: hidden;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.5);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .tiktok-floating:hover {
-        transform: translateY(-50%) scale(1.15);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+    .tiktok-top-right:hover {
+        transform: scale(1.15);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.7);
     }
-    .tiktok-floating img {
+    .tiktok-top-right img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        background: #000; /* Ensures perfect circle with black background like official icon */
+        background: #000; /* Ensures perfect black background like official icon */
     }
 
     /* PLAYER COUNTER */
@@ -348,7 +347,7 @@
     <div class="slide"></div>
 </div>
 
-<!-- NAVBAR (no TikTok inside anymore) -->
+<!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-ui">
         <div class="nav-left">
@@ -364,8 +363,8 @@
     </div>
 </nav>
 
-<!-- TIKTOK FLOATING BUTTON - OUTSIDE NAVBAR -->
-<a href="https://www.tiktok.com/@westlinerp4?_r=1&_t=ZP-92dmj8XX1mp" target="_blank" class="tiktok-floating" title="Follow us on TikTok">
+<!-- TIKTOK ICON BUTTON - OUTSIDE NAVBAR, TOP-RIGHT -->
+<a href="https://www.tiktok.com/@westlinerp4?_r=1&_t=ZP-92dmj8XX1mp" target="_blank" class="tiktok-top-right" title="Follow us on TikTok">
     <img src="https://sf-static.tiktokcdn.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png" alt="TikTok">
 </a>
 
